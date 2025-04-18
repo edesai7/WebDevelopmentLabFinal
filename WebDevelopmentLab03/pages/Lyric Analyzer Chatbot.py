@@ -124,9 +124,11 @@ elif user_input and not st.session_state.lyrics:
     st.info("Please fetch lyrics for a song before chatting.")
 
 if st.session_state.chat_history:
-    st.subheader("Conversation")
-    for msg in st.session_state.chat_history:
-        if msg["role"] == "user":
-            st.markdown(f"**You**: {msg['content']}")
-        else:
-            st.markdown(f"**AI**: {msg['content']}")
+    st.subheader("🗨️ Conversation")
+
+    with st.container():
+        for msg in st.session_state.chat_history:
+            if msg["role"] == "user":
+                st.markdown(f"**🧍 You:** {msg['content']}")
+            else:
+                st.markdown(f"**🤖 AI:** {msg['content']}")
